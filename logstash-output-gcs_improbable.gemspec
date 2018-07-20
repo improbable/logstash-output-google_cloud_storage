@@ -1,5 +1,5 @@
 Gem::Specification.new do |s|
-  s.name            = 'logstash-output-google_cloud_storage'
+  s.name            = 'logstash-output-gcs_improbable'
   s.version         = '3.3.0'
   s.licenses        = ['Apache-2.0']
   s.summary         = "plugin to upload log events to Google Cloud Storage (GCS)"
