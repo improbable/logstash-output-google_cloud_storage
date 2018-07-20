@@ -225,7 +225,7 @@ class LogStash::Outputs::GoogleCloudStorage < LogStash::Outputs::Base
   def start_uploader
     @uploader_thread = Thread.new do
       Stud.interval(@uploader_interval_secs) do
-        @log_rotater.writeln(nil)
+        @log_rotater.rotate_log!
       end
     end
   end
