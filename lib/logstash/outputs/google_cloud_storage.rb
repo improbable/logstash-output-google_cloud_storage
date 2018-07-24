@@ -84,6 +84,9 @@ class LogStash::Outputs::GoogleCloudStorage < LogStash::Outputs::Base
   # GCS bucket name, without "gs://" or any other prefix.
   config :bucket, :validate => :string, :required => true
 
+  # Folder to prepend to file name
+  config :folder, :validate => :string, :default => ""
+
   # GCS path to private key file.
   config :key_path, :validate => :string, :required => true
 
@@ -260,7 +263,7 @@ class LogStash::Outputs::GoogleCloudStorage < LogStash::Outputs::Base
                                                  'uploadType' => 'multipart',
                                                  'bucket' => @bucket,
                                                  'contentEncoding' => @content_encoding,
-                                                 'name' => File.basename(filename)
+                                                 'name' => @folder + "/" + File.basename(filename)
                                                },
                                                :body_object => {contentType: @content_type},
                                                :media => media)
