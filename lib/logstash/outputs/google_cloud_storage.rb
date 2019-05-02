@@ -53,6 +53,7 @@ require "zlib"
 # output {
 #    google_cloud_storage {
 #      bucket => "my_bucket"                                     (required)
+#      folder => "my_prepended_bucker_folder"                    (optional)
 #      key_path => "/path/to/privatekey.p12"                     (required)
 #      key_password => "notasecret"                              (optional)
 #      service_account => "1234@developer.gserviceaccount.com"   (required)
