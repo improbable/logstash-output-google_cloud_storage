@@ -47,6 +47,7 @@ This is an example of logstash config:
 output {
    google_cloud_storage {
      bucket => "my_bucket"                                     (required)
+     folder => "my_prepended_bucker_folder"                    (optional)
      json_key_file => "/path/to/privatekey.json"               (optional)
      temp_directory => "/tmp/logstash-gcs"                     (optional)
      log_file_prefix => "logstash_gcs"                         (optional)
