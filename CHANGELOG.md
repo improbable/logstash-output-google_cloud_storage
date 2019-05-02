@@ -1,3 +1,7 @@
+## 4.0.1-imp
+  - gcs ouptut files placed into configurable subfolder within bucket
+  - WIP: gcs ouptut files placed into configurable dated subfolder within bucket.
+
 ## 4.0.0
   - Move to the Java Google Cloud client library for increased performance and stability.
   - **Breaking** If you use the old PKCS12 authentication keys, you will need to upgrade to
