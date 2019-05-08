@@ -250,29 +250,6 @@ class LogStash::Outputs::GoogleCloudStorage < LogStash::Outputs::Base
   # Uploads a local file to the configured bucket.
   def upload_object(filename)
     @client.upload_object(@folder + "/" + Time.now.strftime("%Y-%m-%d"), filename, @content_encoding, @content_type)
-    # begin
-    #   @logger.debug("GCS: upload object.", :filename => filename)
-
-    #   media = Google::APIClient::UploadIO.new(filename, @content_type)
-    #   metadata_insert_result = @client.execute(:api_method => @storage.objects.insert,
-    #                                            :parameters => {
-    #                                              'uploadType' => 'multipart',
-    #                                              'bucket' => @bucket,
-    #                                              'contentEncoding' => @content_encoding,
-    #                                              'name' => @folder + "/" + File.basename(filename)
-    #                                            },
-    #                                            :body_object => {contentType: @content_type},
-    #                                            :media => media)
-    #   contents = metadata_insert_result.data
-    #   @logger.debug("GCS: multipart insert",
-    #                 :object => contents.name,
-    #                 :self_link => contents.self_link)
-    # rescue => e
-    #   @logger.error("GCS: failed to upload file", :exception => e)
-    #   # TODO(rdc): limit retries?
-    #   sleep 1
-    #   retry
-    # end
   end
 
   def upload_and_delete(filename)
