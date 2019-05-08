@@ -249,7 +249,7 @@ class LogStash::Outputs::GoogleCloudStorage < LogStash::Outputs::Base
   ##
   # Uploads a local file to the configured bucket.
   def upload_object(filename)
-    @client.upload_object(@folder, filename, @content_encoding, @content_type)
+    @client.upload_object(@folder + "/" + Time.now.strftime("%Y-%m-%d"), filename, @content_encoding, @content_type)
     # begin
     #   @logger.debug("GCS: upload object.", :filename => filename)
 
