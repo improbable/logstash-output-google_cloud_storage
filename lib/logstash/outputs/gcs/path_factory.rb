@@ -80,7 +80,8 @@ module LogStash
               prefix: @prefix,
               host: Socket.gethostname,
               date: Time.now.strftime(@date_pattern),
-              partf: '%03d' % @part_number,
+              partf: '%03d' % @part_number,  ## This errors with  `:backtrace=>["org/jruby/RubyString.java:1249:in `%'", "/Users/ludwik/code/testing/logstash-7.0.1/vendor/local_gems/23c3f86a/logstash-output-google_cloud_storage-4.0.1-java/lib/logstash/outputs/gcs/path_factory.rb:83:in `template_variables'"`
+              ## partf: '%03d' % 0,
               uuid: SecureRandom.uuid
           }
         end

@@ -22,10 +22,10 @@ module LogStash
           @storage = initialize_storage(json_key_path)
         end
 
-        def upload_object(file_path, content_encoding, content_type)
+        def upload_object(folder, file_path, content_encoding, content_type)
           input = FileInputStream.new(file_path)
 
-          blob_name = ::File.basename(file_path)
+          blob_name = folder + "/" +::File.basename(file_path)
           blob_info = com.google.cloud.storage.BlobInfo.newBuilder(@bucket, blob_name)
                           .setContentEncoding(content_encoding)
                           .setContentType(content_type)
