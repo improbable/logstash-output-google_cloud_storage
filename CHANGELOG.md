@@ -1,5 +1,5 @@
 ## 4.0.1
-  - gcs ouptut files placed into configurable folder and dated subfolder within bucket
+  - gcs ouptut files placed into configurable folder and dated subfolder within bucket.
 
 ## 4.0.0
   - Move to the Java Google Cloud client library for increased performance and stability.

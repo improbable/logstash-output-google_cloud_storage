@@ -54,7 +54,7 @@ require "zlib"
 # output {
 #    google_cloud_storage {
 #      bucket => "my_bucket"                                     (required)
-#      folder => "my_prepended_bucker_folder"                    (optional)
+#      folder => "my_prepended_bucker_folder"                    (required)
 #      json_key_file => "/path/to/privatekey.json"               (optional)
 #      temp_directory => "/tmp/logstash-gcs"                     (optional)
 #      log_file_prefix => "logstash_gcs"                         (optional)
@@ -85,7 +85,7 @@ class LogStash::Outputs::GoogleCloudStorage < LogStash::Outputs::Base
   config :bucket, :validate => :string, :required => true
 
   # Folder to prepend to file name
-  config :folder, :validate => :string, :default => ""
+  config :folder, :validate => :string, :required => true
 
   # GCS path to private key file.
   config :key_path, :validate => :string, :obsolete => 'Use json_key_file or ADC instead.'
